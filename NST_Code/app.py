@@ -33,8 +33,7 @@ UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
 # -------------------------------
 
 app = Flask(__name__)
-
-app.config["SECRET_KEY"] = "adain-local-demo-secret"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "adain-local-demo-secret")
 app.config["UPLOAD_FOLDER"] = str(UPLOAD_FOLDER)
 app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "jpeg"}
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
